@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { ViteEjsPlugin } from 'vite-plugin-ejs';
+// import { ViteEjsPlugin } from 'vite-plugin-ejs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { glob } from 'glob';
@@ -29,7 +29,7 @@ export default defineConfig({
   base: '/portfolio/',
   plugins: [
     liveReload(['./layout/**/*.ejs', './pages/**/*.ejs', './pages/**/*.html']),
-    ViteEjsPlugin(),
+    // ViteEjsPlugin(),
     moveOutputPlugin(),
     react()
   ],
