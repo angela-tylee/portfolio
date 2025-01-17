@@ -1,6 +1,17 @@
+html, body {
+  height: 100%;
+}
+
 body {
-	font-family: "Lato", sans-serif;
+  height: 100vh;
+	font-family: "Space Grotesk", "Noto Sans TC", sans-serif;
 	line-height: 1.5;
+	font-size: $h6-font-size;
+}
+
+.container {
+	max-width: 1142px; // 65*12 + 30*11 + 16*2
+	padding-inline: 16px;
 }
 
 a {
