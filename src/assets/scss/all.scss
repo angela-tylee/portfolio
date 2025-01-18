@@ -1,6 +1,6 @@
 @import 'bootstrap/scss/functions';
 @import './utils/variables';
-// @import './utils/variables-dark';
+@import './utils/theme';
 @import 'bootstrap';
 
 // base
@@ -16,16 +16,15 @@
 
 
 .btn-outline-primary {
-  color: $dark;
+  color: var(--bs-dark);
   border: none;
-  border-bottom: 3px solid $primary;
+  border-bottom: 3px solid var(--bs-primary);
 }
 
 .btn-outline-dark {
   border: none;
-  border-bottom: 3px solid $dark;
+  border-bottom: 3px solid var(--bs-dark);
 }
-
 
 // Color
 
