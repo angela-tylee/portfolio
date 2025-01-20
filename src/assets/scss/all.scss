@@ -8,12 +8,20 @@
 
 // mixin
 
+// components
+@import './components/button-group';
+
 // layout
 @import './layout/header';
 
 // pages
 @import './pages/home';
 
+
+.title-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--bs-primary);
+}
 
 .btn-outline-primary {
   color: var(--bs-dark);

@@ -1,61 +1,22 @@
-main.hero {
-  h1 span {
-    text-decoration: underline;
-    text-decoration-color: var(--bs-primary);
-  }
-  .share-modal-container {
-    // position: fixed;
-    // width: 100%;
-    top: -65px;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    // transform: translate(8px, -70px);
-    z-index: 100;
-    // display: none;
-  }
-  
-  // .share-modal {
-  //   background-color: var(--bs-secondary);
-  //   border-radius: 4px;
-  //   padding: 8px 16px;
-  //   display: flex;
-  //   justify-content: space-around;
-  //   align-items: center;
-  //   gap: 1.2em;
-  //   position: relative;
-  // }
-  
-  .share-modal::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: var(--bs-secondary);
-    bottom: -15px;
-    left: 50%;
-    transform: rotate(45deg) translateX(-50%);
-  }
+.header-container {
+  background-size: 40%;
+  background-position-x: 100%;
 
-  @keyframes bounceIn {
-    0% {
-      transform: scale(0.3) translateX(-50%);
-      opacity: 0;
-    }
-    50% {
-      transform: scale(1.2) translateX(-50%);
-      opacity: 1;
-    }
-    70% {
-      transform: scale(0.9) translateX(-50%);
-    }
-    100% {
-      transform: scale(1) translateX(-50%);
-    }
-  }
-  
-  .show {
-    display: block;
-    animation: bounceIn 0.5s ease;
+  @media (min-width: 576px) {
+    background-position: 90% 0%;
   }
 }
+
+.language-toggler {
+  @media (min-width: 576px){
+    width: 90px;
+  }
+}
+
+// .mobile-menu {
+//   display: none;
+
+//   @media (min-width: 576px) {
+//     display: flex
+//   }
+// }

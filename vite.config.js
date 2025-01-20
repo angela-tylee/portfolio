@@ -36,6 +36,9 @@ export default defineConfig({
   server: {
     // 啟動 server 時預設開啟的頁面
     open: '/',
+    watch: {
+      usePolling: true, // i18n Enable polling for changes
+    },
   },
   build: {
     rollupOptions: {

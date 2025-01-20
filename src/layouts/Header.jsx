@@ -1,29 +1,22 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../context/ThemeContext';
-import CONTENTS from '../constants/content';
+import ButtonGroup from '../components/ButtonGroup';
 
-// import rectImg from '../assets/images/Mask.svg';
-
-export default function Header() {
+const Header = () => {
+  const { t, i18n } = useTranslation();
   const { theme, setTheme } = useContext(ThemeContext);
-  // const [theme, setTheme] = useState('light');
 
-  // useEffect(() => {
+  const toggleLanguage = () => {
+    if (i18n.language == 'en') {
+      i18n.changeLanguage('zh-TW');
+    } else {
+      i18n.changeLanguage('en');
+    }
+  };
 
-  //   const savedTheme = localStorage.getItem('theme');
-  //   if (savedTheme) {
-  //     setTheme(savedTheme);
-  //     document.documentElement.setAttribute('data-bs-theme', savedTheme);
-  //     return;
-  //   }
-
-  //   const initialTheme =
-  //     document.documentElement.getAttribute('data-bs-theme') || 'light';
-  //   setTheme(initialTheme);
-  //   localStorage.setItem('theme', initialTheme);
-
-  // }, [theme]);
+  console.log(i18n.language);
 
   const toggleTheme = () => {
     if (theme === 'light') {
@@ -37,123 +30,91 @@ export default function Header() {
     }
   };
 
-  // const shareBtn = document.querySelector('.icon-share-container');
-  const shareModal = document.querySelector('.share-modal-container');
+  const mobileMenu = document.querySelector('#mobile-menu');
 
-  // shareBtn.addEventListener('click', function () {
-  //   if (shareModal.style.display == 'none') {
-  //     shareModal.style.display = 'block';
-  //     shareModal.classList.add('show');
-  //   } else {
-  //     shareModal.style.display = 'none';
-  //   }
-  // });
-
-  function toggleContactBtn() {
-    if (shareModal.style.display == 'none') {
-      shareModal.style.display = 'block';
-      shareModal.classList.add('show');
+  const toggleMenu = () => {
+    console.log("toggle", mobileMenu.style.display);
+    if (mobileMenu.style.display !== "flex") {
+      mobileMenu.style.display = "flex"
     } else {
-      shareModal.style.display = 'none';
+      mobileMenu.style.display = "none"
     }
   }
 
   return (
     <div
-      className="container py-4 mb-6"
+      className="container header-container py-4 mb-4 mb-sm-6"
       style={{
-        // backgroundImage: `url(${rectImg})`,
-        // FIXME: light image not showing...
         backgroundImage: `url('./images/Mask${
           theme === 'light' ? '' : '-dark'
         }.svg')`,
-        backgroundSize: 'contain',
+        // backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: '90% 100%',
       }}
     >
       <header className="d-flex justify-content-between align-items-center">
-        <nav className="d-flex">
-          <Link to="/" className="logo me-4 fw-bold">
-            portfolio
-          </Link>
-          <Link to="/blogs">
-            <div>Blog</div>
-          </Link>
-        </nav>
-        <div className="d-flex">
+        <nav className="d-flex justify-content-between container-fluid px-0">
           <div className="d-flex me-4">
-            <a href="" className="me-2">
+            <Link to="/" className="logo me-4 fw-bold">
+              portfolio
+            </Link>
+            <Link to="/blogs" className="me-4">
+              <div>{t('blog')}</div>
+            </Link>
+            <a href="" className="me-3">
               <i className="bi bi-github"></i>
             </a>
-            <a href="" className="me-2">
+            <a href="" className="me-3 d-none d-sm-block">
               <i className="bi bi-linkedin"></i>
             </a>
-            <a href="" className="me-2">
+            <a href="" className="me-3 d-none d-sm-block">
               <i className="bi bi-envelope-fill"></i>
             </a>
           </div>
-          <div className="d-flex">
-            <a href="" className="me-2">
-              <i className="bi bi-translate"></i>
-            </a>
-            {/* <a href="" className="me-2"><i className="bi bi-moon-fill"></i></a> */}
-            <button
-              onClick={toggleTheme}
-              className="btn btn-none border-0 p-0 me-2 d-none d-md-block"
-              title="switch theme"
-            >
-              {theme === 'light' ? (
-                <i className="bi bi-sun-fill"></i>
-              ) : (
-                <i className="bi bi-moon-fill"></i>
-              )}
-            </button>
-          </div>
+          {/* <button className="btn btn-none border-0 p-0 d-sm-none" onClick={toggleMenu}>
+            <i className="bi bi-list-nested fs-2"></i>
+          </button> */}
+        </nav>
+        <div className="mobile-menu d-flex" id="mobile-menu">
+          <button
+            className="language-toggler btn btn-none border-0 p-0 me-2 text-start"
+            onClick={toggleLanguage}
+            // style={{ width: '90px' }}
+          >
+            <i className="bi bi-translate me-2"></i>
+            <span className="d-none d-sm-inline">{i18n.language === 'en' ? 'English' : '繁體中文'}</span>
+          </button>
+          <button
+            onClick={toggleTheme}
+            className="theme-toggler btn btn-none border-0 p-0 me-2"
+            title="switch theme"
+          >
+            {theme === 'light' ? (
+              <i className="bi bi-sun-fill"></i>
+            ) : (
+              <i className="bi bi-moon-fill"></i>
+            )}
+          </button>
         </div>
       </header>
-      <main className="hero py-6">
+      <main className="hero py-5 py-sm-6">
         <div className="py-5">
-          <p className="fs-1 fw-semibold">Reliable, Meticulous, Passionate.</p>
+          <p className="fs-1 fw-semibold">{t('heading')}</p>
           <h1 className="display-1">
-            I am <span>Angela Li</span>
+            I am <span className="title-underline">Angela Li</span>.
           </h1>
           <p className="mt-4">
-            <i className="bi bi-geo-alt-fill me-1"></i>Taiwan
+            <i className="bi bi-geo-alt-fill me-1"></i>
+            {t('location')}
           </p>
-          <p className="mt-4">
-            Based in Taiwan, I’m a front-end developer passionate about building
-            accessible web apps that users love.
-          </p>
-          <p className="mt-4">{CONTENTS.subheading?.en}</p>
+          <p className="mt-4">{t('subheading')}</p>
         </div>
-        <div className="mt-6 d-flex">
-          {/* TODO: pop up and show email, linkedIn */}
-          {/* TODO: 元件化 */}
-          <div className="contact-btn-container position-relative">
-            <div className="share-modal-container w-100">
-              <div className="share-modal bg-secondary rounded-1 mx-2 py-2 px-4 d-flex justify-content-between align-items-center">
-                <i className="bi bi-linkedin fs-5"></i>
-                <i className="bi bi-envelope-fill fs-5"></i>
-              </div>
-            </div>
-            <button className="btn btn-primary" onClick={toggleContactBtn}>
-              Get in touch
-            </button>
-          </div>
-          <button href="" className="btn btn-outline-primary ms-4">
-            Resume
-          </button>
+        <div className="mt-6">
+          <ButtonGroup color={'primary'} />
         </div>
       </main>
     </div>
   );
-}
+};
 
-// const Header = () => {
-//   return (
-//     <h1>This is Header</h1>
-//   )
-// }
-
-// export default Header;
+export default Header;
