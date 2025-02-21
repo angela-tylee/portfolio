@@ -128,7 +128,10 @@ const Home = () => {
                 className="shadow"
               /> */}
               <video width="100%" autoPlay controls>
-                <source src="./media/carpento-shopping.mp4" type="video/mp4" />
+                <source 
+                // src="./media/carpento-shopping.mp4" 
+                src="https://i.imgur.com/y7g86bm.mp4"
+                type="video/mp4" />
               </video>
             </div>
           </div>
@@ -143,7 +146,8 @@ const Home = () => {
                   /> */}
                   <video width="100%" autoPlay loop muted>
                     <source
-                      src="./media/carpento-dark-mode.mp4"
+                      // src="./media/carpento-dark-mode.mp4"
+                      src="https://imgur.com/2NWpXwd.mp4"
                       type="video/mp4"
                     />
                   </video>
@@ -164,7 +168,10 @@ const Home = () => {
                     className="shadow"
                   /> */}
                   <video width="100%" autoPlay loop muted>
-                    <source src="./media/carpento-blog.mp4" type="video/mp4" />
+                    <source 
+                    // src="./media/carpento-blog.mp4" 
+                    src="https://imgur.com/YPwOGvj.mp4" 
+                    type="video/mp4" />
                   </video>
                 </div>
                 <div className="col-12 col-md-4">
@@ -186,7 +193,10 @@ const Home = () => {
                 {t('ecommerce.dashboard')}
               </h4>
               <video width="100%" controls>
-                <source src="./media/carpento-dashboard.mp4" type="video/mp4" />
+                <source 
+                // src="./media/carpento-dashboard.mp4" 
+                src="https://imgur.com/kFnTfze.mp4"
+                type="video/mp4" />
               </video>
             </div>
           </div>
