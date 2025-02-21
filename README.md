@@ -26,6 +26,7 @@ See all my works in this website!
 
 - React + Vite
 - Bootstrap
+- React i18n
 
 ### Continued development
 

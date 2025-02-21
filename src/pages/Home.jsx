@@ -1,13 +1,42 @@
-import { useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../context/ThemeContext';
 import ButtonGroup from '../components/ButtonGroup';
 import PROJECTS from '../constants/projects';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import ProjectsSection from '../components/ProjectsSection';
 
 const Home = () => {
   const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
+  const [isViewMore, setIsViewMore] = useState(false);
+
+  const collapseContentRef = useRef(null);
+
+  function handleViewMore() {
+    const collapseContent = collapseContentRef.current;
+
+    if (collapseContent) {
+
+      collapseContent.addEventListener('shown.bs.collapse', () => {
+        setIsViewMore(true);
+      });
+      collapseContent.addEventListener('hidden.bs.collapse', () => {
+        setIsViewMore(false);
+      });
+
+      // Cleanup event listeners on unmount
+      return () => {
+        collapseContent.removeEventListener('shown.bs.collapse', () => {
+          setIsViewMore(true);
+        });
+        collapseContent.removeEventListener('hidden.bs.collapse', () => {
+          setIsViewMore(false);
+        });
+      };
+    }
+  }
 
   return (
     <main className="home">
@@ -44,25 +73,169 @@ const Home = () => {
         </div>
       </section>
       <section className="section-project-main container my-6">
-        <div>
-          <h2>E-commerce Website: Carpento</h2>
-          <p className="mt-4">
-            Selling furniture online, from showcasing the products, browsing the
-            details to checkout flow.
-          </p>
-        </div>
-        <div className="mt-4">
+        <div className="view-more-mask-container position-relative">
+          <a
+            href="https://angela-tylee.github.io/carpento/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2 className="d-flex align-items-center">
+              {t('ecommerce.title')}
+              <i className="bi bi-box-arrow-up-right ms-2 fs-6"></i>
+            </h2>
+          </a>
+          <div className="mt-3 border-start border-secondary border-5 ps-3">
+            <p>
+              Github Repo:{' '}
+              <a
+                href="https://github.com/angela-tylee/carpento"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-decoration-underline"
+              >
+                https://github.com/angela-tylee/carpento
+              </a>
+            </p>
+            <p className="mt-1">
+              Live Site:{' '}
+              <a
+                href="https://angela-tylee.github.io/carpento/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-decoration-underline"
+              >
+                https://angela-tylee.github.io/carpento/
+              </a>
+            </p>
+          </div>
+          <p className="mt-4">{t('ecommerce.description')}</p>
           <img
             src="./images/projects/carpento.png"
             alt=""
             width="100%"
-            className="shadow"
+            className="mt-4 shadow"
           />
+          <div className={`view-more-mask ${isViewMore ? '' : 'show'}`}></div>
+        </div>
+        <div className="collapse" id="collapseExample" ref={collapseContentRef}>
+          <div className="row mt-5">
+            <div className="col-12">
+              <h4 className="my-3 border-start border-secondary border-5 ps-3">
+                {t('ecommerce.products')}
+              </h4>
+              {/* <img
+                src="https://fakeimg.pl/2000x1000/?text=product"
+                width="100%"
+                className="shadow"
+              /> */}
+              <video width="100%" autoPlay controls>
+                <source src="./media/carpento-shopping.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <div className="row g-4 mt-0 mt-lg-4">
+            <div className="col-12">
+              <div className="row align-items-end flex-column-reverse flex-md-row-reverse gap-4 gap-md-0">
+                <div className="col-12 col-md-8">
+                  {/* <img
+                    src="https://fakeimg.pl/2000x1000/?text=dark mode"
+                    width="100%"
+                    className="shadow"
+                  /> */}
+                  <video width="100%" autoPlay loop muted>
+                    <source
+                      src="./media/carpento-dark-mode.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+                <div className="col-12 col-md-4">
+                  <p className="border-start border-secondary border-5 ps-3 fs-5">
+                    {t('ecommerce.dark-mode')}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-12">
+              <div className="row align-items-end flex-column-reverse flex-md-row gap-4 gap-md-0">
+                <div className="col-12 col-md-8">
+                  {/* <img
+                    src="https://fakeimg.pl/2000x1000/?text=blog"
+                    width="100%"
+                    className="shadow"
+                  /> */}
+                  <video width="100%" autoPlay loop muted>
+                    <source src="./media/carpento-blog.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <div className="col-12 col-md-4">
+                  <p className="border-start border-secondary border-5 ps-3 fs-5">
+                    {t('ecommerce.blog')}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row mt-4 mt-lg-5">
+            <div className="col-12">
+              {/* <img
+                src="https://fakeimg.pl/2000x1000/?text=dashboard"
+                width="100%"
+                className="shadow"
+              /> */}
+              <h4 className="my-3 border-start border-secondary border-5 ps-3">
+                {t('ecommerce.dashboard')}
+              </h4>
+              <video width="100%" controls>
+                <source src="./media/carpento-dashboard.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <div className="my-5 text-center">
+            <button className={`btn btn-secondary`}>
+              <a
+                href="https://angela-tylee.github.io/carpento/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('check-out-site')}
+              </a>
+            </button>
+          </div>
+        </div>
+        <div className="col-12 mt-4 d-flex justify-content-center">
+          <button
+            className="btn btn-none border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExample"
+            aria-expanded="false"
+            aria-controls="collapseExample"
+            onClick={handleViewMore}
+          >
+            <div className="d-flex flex-column align-items-center">
+              {isViewMore ? (
+                <>
+                  <span>{t('hide')}</span>
+                  <i className="bi bi-chevron-compact-up fs-1"></i>
+                </>
+              ) : (
+                <>
+                  <span>{t('view-more')}</span>
+                  <i className="bi bi-chevron-compact-down fs-1"></i>
+                </>
+              )}
+            </div>
+          </button>
         </div>
       </section>
       <section className="section-profile container my-6">
-        <div className="container-fluid col-12 col-sm-10">
-          <h2 className="mb-5 text-start text-md-center"><span className="pb-2 border-bottom border-primary">About Me</span></h2>
+        <div className="container-fluid col-12 col-md-11 p-0 p-md-auto">
+          <h2 className="mb-5 text-start text-md-center">
+            <span className="pb-2 border-bottom border-primary">
+              {t('about-me')}
+            </span>
+          </h2>
           <div className="row">
             <div
               className="d-none d-xl-block col-xl-3 px-0 position-relative overflow-hidden"
@@ -78,57 +251,27 @@ const Home = () => {
                 alt=""
                 width="100%"
               />
-              {/* TODO: add gif for demo: desktop - mobile, dark/light mode, CKEditor, addToCart Message, search/sort/tab/swiper? */}
             </div>
             <div className="col-12 col-xl-9 ps-xl-5">
               <div className="h-100 d-flex flex-column justify-content-center">
                 <h2>{t('ready-challenge')}</h2>
-                <p className="mt-4 lh-lg" dangerouslySetInnerHTML={{ __html: t('description').replace(/\n/g, '<br />') }} />
+                <p
+                  className="mt-4"
+                  dangerouslySetInnerHTML={{
+                    __html: t('description').replace(/\n/g, '<br /><br />'),
+                  }}
+                  style={{ minHeight: '245px' }}
+                />
 
-                <div className="mt-6">
-                  <ButtonGroup color={"primary"}/>
+                <div className="mt-5 mt-lg-6">
+                  <ButtonGroup color={'primary'} />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="section-project-others container my-6">
-        <h2 className="mb-5"><span className="pb-2 border-bottom border-primary">{t('projects')}</span></h2>
-        <div className="row g-3">
-          {PROJECTS &&
-            PROJECTS.map((project, index) => (
-              <div className="col-12 col-sm-6 col-md-3" key={index}>
-                <div className="card border-0">
-                  <div className="card-header p-0 border-0 position-relative">
-                    <img
-                      src={project.img}
-                      alt=""
-                      width="100%"
-                      className="shadow"
-                    />
-                    <div className="card-mask">
-                      <button className="btn btn-outline-primary text-white fw-medium">
-                        Github<i className="bi bi-box-arrow-up-right ms-2"></i>
-                      </button>
-                      <button className="btn btn-outline-primary text-white fw-medium">
-                        Site<i className="bi bi-box-arrow-up-right ms-2"></i>
-                      </button>
-                    </div>
-                  </div>
-                  <div className="card-body px-0">
-                    <h5 className="card-title mt-2">{project.title}</h5>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
-        <div className="d-flex justify-content-end">
-          <Link to="/projects" className="btn btn-outline-primary mt-4">
-            {t('view-more')}
-          </Link>
-        </div>
-      </section>
+      <ProjectsSection cardCount={3} />
     </main>
   );
 };

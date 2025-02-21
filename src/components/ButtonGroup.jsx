@@ -6,21 +6,7 @@ const ButtonGroup = ({ color }) => {
 
   const shareModalContainerRef = useRef(null);
 
-  // TODO: useRef or id
-  // const shareModal = document.querySelector('.share-modal-container');
-
-  // function toggleContactBtn() {
-  //   if (shareModal.style.display == 'none') {
-  //     shareModal.style.display = 'block';
-  //     shareModal.classList.add('show');
-  //   } else {
-  //     shareModal.style.display = 'none';
-  //    }
-  // }
-
-    // console.log("1", shareModalContainerRef.current.style.display)
-
-    // TODO: Manipulate class instead of style directly.
+  // TODO: Manipulate class instead of style directly.
   function toggleContactBtn() {
     if (shareModalContainerRef.current.style.display !== 'block') {
       shareModalContainerRef.current.style.display = 'block';
@@ -33,10 +19,21 @@ const ButtonGroup = ({ color }) => {
   return (
     <div className="d-flex">
       <div className="contact-btn-container position-relative">
-        <div ref={shareModalContainerRef} className="share-modal-container w-100">
-          <div className="share-modal bg-secondary rounded-1 mx-2 py-2 px-4 d-flex justify-content-between align-items-center">
-            <i className="bi bi-linkedin fs-5"></i>
-            <i className="bi bi-envelope-fill fs-5"></i>
+        <div
+          ref={shareModalContainerRef}
+          className="share-modal-container w-100"
+        >
+          <div className="share-modal bg-body-secondary rounded-1 mx-2 py-2 px-4 d-flex justify-content-between align-items-center shadow">
+            <a
+              href="https://www.linkedin.com/in/angela-tylee/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="bi bi-linkedin fs-5"></i>
+            </a>
+            <a href="mailto:angela.tylee25@gmail.com">
+              <i className="bi bi-envelope-fill fs-5"></i>
+            </a>
           </div>
         </div>
         <button
@@ -47,8 +44,12 @@ const ButtonGroup = ({ color }) => {
           {t('get-in-touch')}
         </button>
       </div>
-      <button href="" className={`btn btn-outline-${color} ms-4`}>
-        {t('resume')}
+      <button
+        href=""
+        className={`btn btn-outline-${color} ms-4`}
+        style={{ width: '130px' }}
+      >
+        <a href={t('resume-pdf')} target="_blank" rel="noopener noreferrer">{t('resume')}</a>
       </button>
     </div>
   );

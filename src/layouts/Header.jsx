@@ -16,8 +16,6 @@ const Header = () => {
     }
   };
 
-  console.log(i18n.language);
-
   const toggleTheme = () => {
     if (theme === 'light') {
       document.documentElement.setAttribute('data-bs-theme', 'dark');
@@ -30,17 +28,6 @@ const Header = () => {
     }
   };
 
-  const mobileMenu = document.querySelector('#mobile-menu');
-
-  const toggleMenu = () => {
-    console.log("toggle", mobileMenu.style.display);
-    if (mobileMenu.style.display !== "flex") {
-      mobileMenu.style.display = "flex"
-    } else {
-      mobileMenu.style.display = "none"
-    }
-  }
-
   return (
     <div
       className="container header-container py-4 mb-4 mb-sm-6"
@@ -48,7 +35,6 @@ const Header = () => {
         backgroundImage: `url('./images/Mask${
           theme === 'light' ? '' : '-dark'
         }.svg')`,
-        // backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
       }}
     >
@@ -58,16 +44,16 @@ const Header = () => {
             <Link to="/" className="logo me-4 fw-bold">
               portfolio
             </Link>
-            <Link to="/blogs" className="me-4">
+            {/* <Link to="/blogs" className="me-4">
               <div>{t('blog')}</div>
-            </Link>
-            <a href="" className="me-3">
+            </Link> */}
+            <a href="https://github.com/angela-tylee" target="_blank" rel="noopener noreferrer" className="me-3">
               <i className="bi bi-github"></i>
             </a>
-            <a href="" className="me-3 d-none d-sm-block">
+            <a href="https://www.linkedin.com/in/angela-tylee/" target="_blank" rel="noopener noreferrer" className="me-3 d-none d-sm-block">
               <i className="bi bi-linkedin"></i>
             </a>
-            <a href="" className="me-3 d-none d-sm-block">
+            <a href="mailto:angela.tylee25@gmail.com" className="me-3 d-none d-sm-block">
               <i className="bi bi-envelope-fill"></i>
             </a>
           </div>
@@ -79,14 +65,13 @@ const Header = () => {
           <button
             className="language-toggler btn btn-none border-0 p-0 me-2 text-start"
             onClick={toggleLanguage}
-            // style={{ width: '90px' }}
           >
-            <i className="bi bi-translate me-2"></i>
+            <i className="bi bi-translate me-3 me-md-2"></i>
             <span className="d-none d-sm-inline">{i18n.language === 'en' ? 'English' : '繁體中文'}</span>
           </button>
           <button
             onClick={toggleTheme}
-            className="theme-toggler btn btn-none border-0 p-0 me-2"
+            className="theme-toggler btn btn-none border-0 p-0 me-3 me-md-2"
             title="switch theme"
           >
             {theme === 'light' ? (
@@ -97,11 +82,11 @@ const Header = () => {
           </button>
         </div>
       </header>
-      <main className="hero py-5 py-sm-6">
+      <main className="hero py-4 py-sm-6">
         <div className="py-5">
           <p className="fs-1 fw-semibold">{t('heading')}</p>
           <h1 className="display-1">
-            I am <span className="title-underline">Angela Li</span>.
+            I am <Link to="/"><span className="title-underline">Angela Lee</span></Link>.
           </h1>
           <p className="mt-4">
             <i className="bi bi-geo-alt-fill me-1"></i>
@@ -109,7 +94,7 @@ const Header = () => {
           </p>
           <p className="mt-4">{t('subheading')}</p>
         </div>
-        <div className="mt-6">
+        <div className="mt-3 mt-sm-6">
           <ButtonGroup color={'primary'} />
         </div>
       </main>
