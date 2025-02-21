@@ -1,9 +1,8 @@
-import { useEffect, useState, useContext, useRef } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../context/ThemeContext';
 import ButtonGroup from '../components/ButtonGroup';
-import PROJECTS from '../constants/projects';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import ProjectsSection from '../components/ProjectsSection';
 
