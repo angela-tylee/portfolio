@@ -2,7 +2,7 @@ const PROJECTS = [
   {
     "title": "To-Do App",
     "img": "./images/projects/todo-app.jpg",
-    "tools": ["React", "Redux", "Vite"],
+    "tools": ["React", "Vite"],
     "repository": "https://github.com/angela-tylee/todo-app-react",
     "site": "https://angela-tylee.github.io/todo-app-react",
     "description": "Featured Beautiful UI, Redux state management, and Theme Switcher."
