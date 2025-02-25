@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import PROJECTS from '../constants/projects';
 
 const ProjectsSection = ({ cardCount = PROJECTS.length }) => {
+  
   const { t } = useTranslation();
 
   return (

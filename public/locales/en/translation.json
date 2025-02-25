@@ -1,6 +1,6 @@
 {
   "heading": "Reliable, Meticulous, Passionate",
-  "subheading": "I'm a frontend developer who aims to craft sophisticated and purposeful websites, driven by the belief that well-leveraged technology can enhance people's everyday lives.",
+  "subheading": "I'm a frontend developer who aim to craft sophisticated and purposeful websites, driven by the belief that well-leveraged technology can enhance people's everyday lives.",
   "location": "Taiwan",
   "blog": "Blog",
   "get-in-touch": "Get in touch",
@@ -17,6 +17,13 @@
   "ecommerce": {
     "title": "E-commerce Website: Carpento",
     "description": "Selling furniture online, from showcasing the products, browsing the details to finishing the checkout flow.",
+    "key-points": [
+      "Developed with <strong>React, CRA, Bootstrap</strong>, consisting of <strong>~8,500 lines</strong> of well-structured source code.",
+      "Integrated with <strong>20+ APIs</strong>, GET, POST, DELETE, and PUT to modify product and shopping cart states...etc.",
+      "Follow modular principles, including reusable component system, maintainable SCSS styling, and a clean file architecture for maintainability.",
+      "<strong>10+</strong> reusable components and custom hooks, reduced <strong>18%</strong> total lines of codes, enhanced code readability and maintainability.",
+      "Consolidate packages including Swiper, CKEditor, React Hook Form, enhance the readability and maintainability, also improved user experience."
+    ],
     "products": "Find a product, add to cart, and checkout!",
     "dark-mode": "Switch light / dark mode as you want!",
     "blog": "Add relevant contents about this brand to attract more potential customers",

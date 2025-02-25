@@ -7,8 +7,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import ProjectsSection from '../components/ProjectsSection';
 
 const Home = () => {
+
+  // i18n translation
   const { t } = useTranslation();
+  const keyPoints = t('ecommerce.key-points', { returnObjects: true });
+
+  // theme toggler
   const { theme } = useContext(ThemeContext);
+
+  // view more collapse
   const [isViewMore, setIsViewMore] = useState(false);
 
   const collapseContentRef = useRef(null);
@@ -17,7 +24,6 @@ const Home = () => {
     const collapseContent = collapseContentRef.current;
 
     if (collapseContent) {
-
       collapseContent.addEventListener('shown.bs.collapse', () => {
         setIsViewMore(true);
       });
@@ -25,7 +31,6 @@ const Home = () => {
         setIsViewMore(false);
       });
 
-      // Cleanup event listeners on unmount
       return () => {
         collapseContent.removeEventListener('shown.bs.collapse', () => {
           setIsViewMore(true);
@@ -36,6 +41,7 @@ const Home = () => {
       };
     }
   }
+
 
   return (
     <main className="home">
@@ -83,6 +89,8 @@ const Home = () => {
               <i className="bi bi-box-arrow-up-right ms-2 fs-6"></i>
             </h2>
           </a>
+          <p className="mt-4">{t('ecommerce.description')}</p>
+
           <div className="mt-3 border-start border-secondary border-5 ps-3">
             <p>
               Github Repo:{' '}
@@ -107,31 +115,42 @@ const Home = () => {
               </a>
             </p>
           </div>
-          <p className="mt-4">{t('ecommerce.description')}</p>
+          <h4 className="mt-4">
+            <span className="border-bottom border-primary border-2 me-3">
+              React
+            </span>
+            <span className="border-bottom border-primary border-2 me-3">
+              CRA
+            </span>
+            <span className="border-bottom border-primary border-2 me-3">
+              Bootstrap
+            </span>
+          </h4>
           <img
             src="./images/projects/carpento.png"
             alt=""
             width="100%"
             className="mt-4 shadow"
           />
+
           <div className={`view-more-mask ${isViewMore ? '' : 'show'}`}></div>
         </div>
         <div className="collapse" id="collapseExample" ref={collapseContentRef}>
+          <ul className="ps-4 mt-5 lh-lg">
+            {keyPoints.map((point, index) => (
+              <li key={index} dangerouslySetInnerHTML={{ __html: point }}></li>
+            ))}
+          </ul>
           <div className="row mt-5">
             <div className="col-12">
               <h4 className="my-3 border-start border-secondary border-5 ps-3">
                 {t('ecommerce.products')}
               </h4>
-              {/* <img
-                src="https://fakeimg.pl/2000x1000/?text=product"
-                width="100%"
-                className="shadow"
-              /> */}
               <video width="100%" autoPlay controls>
-                <source 
-                // src="./media/carpento-shopping.mp4" 
-                src="https://i.imgur.com/y7g86bm.mp4"
-                type="video/mp4" />
+                <source
+                  src="https://i.imgur.com/y7g86bm.mp4"
+                  type="video/mp4"
+                />
               </video>
             </div>
           </div>
@@ -139,14 +158,8 @@ const Home = () => {
             <div className="col-12">
               <div className="row align-items-end flex-column-reverse flex-md-row-reverse gap-4 gap-md-0">
                 <div className="col-12 col-md-8">
-                  {/* <img
-                    src="https://fakeimg.pl/2000x1000/?text=dark mode"
-                    width="100%"
-                    className="shadow"
-                  /> */}
                   <video width="100%" autoPlay loop muted>
                     <source
-                      // src="./media/carpento-dark-mode.mp4"
                       src="https://imgur.com/2NWpXwd.mp4"
                       type="video/mp4"
                     />
@@ -162,16 +175,11 @@ const Home = () => {
             <div className="col-12">
               <div className="row align-items-end flex-column-reverse flex-md-row gap-4 gap-md-0">
                 <div className="col-12 col-md-8">
-                  {/* <img
-                    src="https://fakeimg.pl/2000x1000/?text=blog"
-                    width="100%"
-                    className="shadow"
-                  /> */}
                   <video width="100%" autoPlay loop muted>
-                    <source 
-                    // src="./media/carpento-blog.mp4" 
-                    src="https://imgur.com/YPwOGvj.mp4" 
-                    type="video/mp4" />
+                    <source
+                      src="https://imgur.com/YPwOGvj.mp4"
+                      type="video/mp4"
+                    />
                   </video>
                 </div>
                 <div className="col-12 col-md-4">
@@ -184,19 +192,14 @@ const Home = () => {
           </div>
           <div className="row mt-4 mt-lg-5">
             <div className="col-12">
-              {/* <img
-                src="https://fakeimg.pl/2000x1000/?text=dashboard"
-                width="100%"
-                className="shadow"
-              /> */}
               <h4 className="my-3 border-start border-secondary border-5 ps-3">
                 {t('ecommerce.dashboard')}
               </h4>
               <video width="100%" controls>
-                <source 
-                // src="./media/carpento-dashboard.mp4" 
-                src="https://imgur.com/kFnTfze.mp4"
-                type="video/mp4" />
+                <source
+                  src="https://imgur.com/kFnTfze.mp4"
+                  type="video/mp4"
+                />
               </video>
             </div>
           </div>
