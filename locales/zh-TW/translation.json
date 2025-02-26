@@ -16,8 +16,15 @@
   "ready-challenge": "隨時迎接任何挑戰！",
   "ecommerce": {
     "title": "電商官網：Carpento",
-    "description": "完整處理從展示商品、瀏覽細節、到完成結帳的家具電商網站",
-    "products": "搜尋想要的商品、加入購物車、送出訂單！",
+    "description": "完整開發從展示商品、瀏覽細節、到完成結帳的家具電商網站",
+    "key-points": [
+      "以 <strong>React、CRA、Bootstrap</strong> 進行開發，共 <strong>8500+</strong> 行程式碼的完整電商網站",
+      "串接 <strong>20+ API</strong>，包含新增、編輯、刪除、修改商品 / 購物車等功能",
+      "遵循模組化原則開發，包含使用可重複使用的元件系統、易維護的 SCSS 樣式結構，以及架構清晰的檔案管理",
+      "<strong>10+</strong> 個可重複使用元件、Custom Hooks，減少 <strong>18%</strong> 重複的程式碼行數，提升原始碼易讀性及可維護性",
+      "整合 Swiper, CKEditor, React Hook Form 等套件，提升原始碼易讀性、易維護性，並提升使用者體驗"
+    ],
+    "shopping": "搜尋想要的商品、加入購物車、送出訂單！",
     "dark-mode": "隨心所欲切換主題顏色",
     "blog": "新增品牌相關的文章，吸引更多潛在客戶",
     "dashboard": "在後台輕鬆管理商品、訂單、文章、折扣碼"
