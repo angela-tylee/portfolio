@@ -89,8 +89,18 @@ const Home = () => {
               <i className="bi bi-box-arrow-up-right ms-2 fs-6"></i>
             </h2>
           </a>
+          <h4 className="mt-4">
+            <span className="border-bottom border-primary border-2 me-3">
+              React
+            </span>
+            <span className="border-bottom border-primary border-2 me-3">
+              CRA
+            </span>
+            <span className="border-bottom border-primary border-2 me-3">
+              Bootstrap
+            </span>
+          </h4>
           <p className="mt-4">{t('ecommerce.description')}</p>
-
           <div className="mt-3 border-start border-secondary border-5 ps-3">
             <p>
               Github Repo:{' '}
@@ -115,17 +125,6 @@ const Home = () => {
               </a>
             </p>
           </div>
-          <h4 className="mt-4">
-            <span className="border-bottom border-primary border-2 me-3">
-              React
-            </span>
-            <span className="border-bottom border-primary border-2 me-3">
-              CRA
-            </span>
-            <span className="border-bottom border-primary border-2 me-3">
-              Bootstrap
-            </span>
-          </h4>
           <img
             src="./images/projects/carpento.png"
             alt=""

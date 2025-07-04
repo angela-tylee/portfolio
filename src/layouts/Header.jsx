@@ -44,9 +44,9 @@ const Header = () => {
             <Link to="/" className="logo me-4 fw-bold">
               portfolio
             </Link>
-            {/* <Link to="/blogs" className="me-4">
+            <a href='https://angela-tylee.notion.site/Learning-Notes-21a8d159628880d280d1e6a6c5eb0ec1?pvs=74' target='_blank' className="me-4 border-bottom border-3 border-primary">
               <div>{t('blog')}</div>
-            </Link> */}
+            </a>
             <a href="https://github.com/angela-tylee" target="_blank" rel="noopener noreferrer" className="me-3">
               <i className="bi bi-github"></i>
             </a>
