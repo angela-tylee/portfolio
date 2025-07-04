@@ -11,8 +11,10 @@
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "bootstrap": "^5.3.3",
     "glob": "^10.2.2",
+    "gsap": "^3.13.0",
     "i18next": "^24.2.1",
     "i18next-browser-languagedetector": "^8.0.2",
     "i18next-http-backend": "^3.0.1",

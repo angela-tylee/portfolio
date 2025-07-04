@@ -1,10 +1,30 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import PROJECTS from '../constants/projects';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const ProjectsSection = ({ cardCount = PROJECTS.length }) => {
   
   const { t } = useTranslation();
+
+  // GSAP animation
+  // TODO: avoid duplicate gsap settings
+  useGSAP(() => {
+    gsap.from('.card', {
+      scrollTrigger: {
+        trigger: '.section-project-others',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+      },
+      yPercent: 200,
+      duration: 1.5,
+      ease: 'expo.out',
+      stagger: 0.1,
+    });
+  })
 
   return (
     <section className="section-project-others container my-6">
