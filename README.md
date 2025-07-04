@@ -27,9 +27,10 @@ See all my works in this website!
 - React + Vite
 - Bootstrap
 - React i18n
+- GSAP
 
 ### Continued development
 
 - Blog
 - More projects
-- Tag Results
+- Clickable skill tags & filtered results
