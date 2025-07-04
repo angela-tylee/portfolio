@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../context/ThemeContext';
 import ButtonGroup from '../components/ButtonGroup';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
 import ProjectsSection from '../components/ProjectsSection';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger, SplitText } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-
   // i18n translation
   const { t } = useTranslation();
   const keyPoints = t('ecommerce.key-points', { returnObjects: true });
@@ -42,35 +45,57 @@ const Home = () => {
     }
   }
 
+  // GSAP animation
+  useGSAP(() => {
+    gsap.from('.skill', {
+      scrollTrigger: '.skill',
+      yPercent: 100,
+      duration: 1.8,
+      ease: 'expo.out',
+    });
+
+    const descriptionSplit = new SplitText('#description', {
+      type: 'lines',
+    });
+
+    gsap.from(descriptionSplit.lines, {
+      scrollTrigger: '#description',
+      yPercent: 200,
+      duration: 1.8,
+      ease: 'expo.out',
+      stagger: 0.05,
+    });
+
+  });
 
   return (
     <main className="home">
       <section className="section-skill bg-secondary py-5 mt-4">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-sm-6 col-md-4 my-4 text-center">
+            <div className="col-12 col-sm-6 col-md-4 my-4 text-center skill">
               <Link to="/result">
                 <h3>HTML</h3>
                 <p></p>
               </Link>
             </div>
-            <div className="col-12 col-sm-6 col-md-4 my-4 text-center">
+            <div className="col-12 col-sm-6 col-md-4 my-4 text-center skill">
               <h3>CSS</h3>
               <p></p>
             </div>
-            <div className="col-12 col-sm-6 col-md-4 my-4 text-center">
+            <div className="col-12 col-sm-6 col-md-4 my-4 text-center skill">
               <h3>JavaScript</h3>
               <p></p>
             </div>
-            <div className="col-12 col-sm-6 col-md-4 my-4 text-center">
+            <div className="col-12 col-sm-6 col-md-4 my-4 text-center skill">
               <h3>Vite</h3>
               <p></p>
             </div>
-            <div className="col-12 col-sm-6 col-md-4 my-4 text-center">
+            <div className="col-12 col-sm-6 col-md-4 my-4 text-center skill">
               <h3>React</h3>
               <p></p>
             </div>
-            <div className="col-12 col-sm-6 col-md-4 my-4 text-center">
+            <div className="col-12 col-sm-6 col-md-4 my-4 text-center skill">
               <h3>Bootstrap</h3>
               <p></p>
             </div>
@@ -195,10 +220,7 @@ const Home = () => {
                 {t('ecommerce.dashboard')}
               </h4>
               <video width="100%" controls>
-                <source
-                  src="https://imgur.com/kFnTfze.mp4"
-                  type="video/mp4"
-                />
+                <source src="https://imgur.com/kFnTfze.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
@@ -268,6 +290,7 @@ const Home = () => {
                 <h2>{t('ready-challenge')}</h2>
                 <p
                   className="mt-4"
+                  id="description"
                   dangerouslySetInnerHTML={{
                     __html: t('description').replace(/\n/g, '<br /><br />'),
                   }}
