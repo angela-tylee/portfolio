@@ -10,6 +10,33 @@
   "check-out-site": "前往查看網站！",
   "about-me": "關於我",
   "description": "我專注於撰寫可複用、可讀性高且具擴展性的程式碼，同時，我喜歡深入理解底層邏輯及掌握核心原理，以進而追求產出高效穩定、且適合長期運行的解決方案。\n在團隊中，我是具有統籌能力、邏輯嚴謹的執行者，擅長為團隊帶來穩定的力量與價值，推動團隊前進。以我穩健且細緻的態度，我將致力於協助團隊提供架構完善、符合您的技術及商業需求的解決方案。",
+  "articles": "學習筆記",
+  "article-list": [
+    {
+      "title": "變數宣告以及 var, let, const 的差異",
+      "url": "https://angela-tylee.notion.site/var-let-const-1b98d159628880dbb66ace4ec80e72bd"
+    },
+    {
+      "title": "什麼是作用域 (Scope)？以及提升(Hoisting)、遮蔽(Shadowing)？",
+      "url": "https://angela-tylee.notion.site/Scope-Hoisting-Shadowing-Lexical-Scope-TDZ-1388d159628880f79e00dcdf915dbc7b"
+    },
+    {
+      "title": "表達式 (Expression) vs 陳述式 (Statement)、函式陳述式 vs 函式表達式",
+      "url": "https://angela-tylee.notion.site/Expression-vs-Statement-vs-1b98d1596288808087f7d0f9528e4c7c"
+    },
+    {
+      "title": "型別：型別的轉換 (Type Conversion) 與比較、真假值",
+      "url": "https://angela-tylee.notion.site/Type-Conversion-1388d1596288806199eae83501bc7a45"
+    },
+    {
+      "title": "物件：物件為什麼不能相等？物件 vs 變數的求值策略（傳值？傳址？傳參考？）",
+      "url": "https://angela-tylee.notion.site/vs-1438d159628880638deac735dbd5a26d"
+    },
+    {
+      "title": "this 的指向：什麼時候會用到 this？要怎麼用得正確？",
+      "url": "https://angela-tylee.notion.site/this-this-1438d159628880d8a7a1e8c333a28daa"
+    }
+  ],
   "projects": "其他微型專案",
   "view-more": "查看更多",
   "know-more": "了解更多",

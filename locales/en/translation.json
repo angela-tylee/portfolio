@@ -11,6 +11,33 @@
   "check-out-site": "Check Out the Live Site!",
   "about-me": "About Me",
   "description": "My focus lies in creating code that is reusable, readable, and scalable as well as delving into fundamental logic, ensuring a solid understanding of the core principles which all drive me to create efficient and reliable solutions that can contribute to the long-term success of any project. \nIn a team, I am a logical executor, bringing stability and coordination to drive the team forward. With my steady and meticulous style, I can bring strong commitment to delivering well-structured solutions to your technical and business goals. ",
+  "articles": "Articles",
+  "article-list": [
+    {
+      "title": "Variable declaration and the difference between var, let, const",
+      "url": "https://angela-tylee.notion.site/var-let-const-1b98d159628880dbb66ace4ec80e72bd"
+    },
+    {
+      "title": "What is Scope? Hoisting, Shadowing, Lexical Scope, TDZ, Parameter Delivery",
+      "url": "https://angela-tylee.notion.site/Scope-Hoisting-Shadowing-Lexical-Scope-TDZ-1388d159628880f79e00dcdf915dbc7b"
+    },
+    {
+      "title": "Expression vs Statement, Function Statement vs Function Expression",
+      "url": "https://angela-tylee.notion.site/Expression-vs-Statement-vs-1b98d1596288808087f7d0f9528e4c7c"
+    },
+    {
+      "title": "Data Type: Type Conversion and Comparison, True and False Values",
+      "url": "https://angela-tylee.notion.site/Type-Conversion-1388d1596288806199eae83501bc7a45"
+    },
+    {
+      "title": "Objects: Why Can't Objects Be Equal? Call-by-Value vs. Call-by-Reference vs. Call-by-Sharing",
+      "url": "https://angela-tylee.notion.site/vs-1438d159628880638deac735dbd5a26d"
+    },
+    {
+      "title": "Understanding JavaScript's this: When and How to Use It Correctly",
+      "url": "https://angela-tylee.notion.site/this-this-1438d159628880d8a7a1e8c333a28daa"
+    }
+  ],
   "projects": "Other Mini Projects",
   "know-more": "Know More about Me",
   "ready-challenge": "Ready to Tackle Any Technical Challenges.",
