@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../context/ThemeContext';
 import ButtonGroup from '../components/ButtonGroup';
 import ProjectsSection from '../components/ProjectsSection';
+import ArticlesSection from '../components/ArticlesSection';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -59,13 +60,16 @@ const Home = () => {
     });
 
     gsap.from(descriptionSplit.lines, {
-      scrollTrigger: '#description',
+      scrollTrigger: {
+        trigger: '#description',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+      },
       yPercent: 200,
       duration: 1.8,
       ease: 'expo.out',
       stagger: 0.05,
     });
-
   });
 
   return (
@@ -305,6 +309,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <ArticlesSection />
       <ProjectsSection cardCount={3} />
     </main>
   );

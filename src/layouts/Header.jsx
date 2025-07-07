@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../context/ThemeContext';
 import ButtonGroup from '../components/ButtonGroup';
@@ -69,13 +70,19 @@ const Header = () => {
             <Link to="/" className="logo me-4 fw-bold">
               portfolio
             </Link>
-            <a
+            {/* <a
               href="https://angela-tylee.notion.site/Learning-Notes-21a8d159628880d280d1e6a6c5eb0ec1?pvs=74"
               target="_blank"
               className="me-4 border-bottom border-3 border-primary"
             >
               <div>{t('blog')}</div>
-            </a>
+            </a> */}
+            <HashLink
+              to="#articles"
+              className="me-4 border-bottom border-3 border-primary"
+            >
+              <div>{t('blog')}</div>
+            </HashLink>
             <a
               href="https://github.com/angela-tylee"
               target="_blank"
